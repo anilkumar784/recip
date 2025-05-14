@@ -34,7 +34,7 @@
 
     .recipe-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1em;
       padding: 1em;
     }
@@ -50,6 +50,14 @@
 
     .recipe-card:hover {
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .recipe-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5em;
     }
 
     .modal {
@@ -105,20 +113,10 @@
     <div class="recipe-container" id="recipeContainer"></div>
 
     <section class="intro-text">
-      <h2>Welcome to My Recipe Book</h2>
-      <p>At My Recipe Book, we believe that cooking should be fun, flavorful, and accessible to everyone. Whether you're a seasoned home chef or just starting out in the kitchen, our goal is to provide a collection of delicious and easy-to-follow recipes that inspire your culinary journey. Our recipes span a wide range of cuisines and difficulty levels, so there’s something here for every palate and skill set.</p>
-
-      <p>Cooking isn’t just about feeding ourselves — it’s about creating memories, sharing stories, and bringing people together. That’s why each recipe you’ll find here is more than just a list of ingredients and steps; it’s an invitation to connect with food on a deeper level. We’ve carefully crafted and curated each dish to offer not just great taste, but a little spark of inspiration for your own creativity in the kitchen.</p>
-
-      <p>From quick weeknight dinners to indulgent desserts, we’ve organized our recipes to help you find exactly what you need. Looking for healthy options? Craving something spicy? Need a vegetarian twist on a classic dish? Our growing collection is here to make sure you spend less time wondering what to cook and more time enjoying your meals.</p>
-
-      <p>We also understand that modern cooks have different needs. That's why we include helpful tips like substitution suggestions, storage advice, and even meal prep hacks. Want to save time with a one-pot meal? Curious about how to properly store leftovers? We’ve got you covered. We believe in practical cooking that fits real life — without sacrificing flavor or creativity.</p>
-
-      <p>One of our favorite things about this platform is how interactive it is. You can browse recipes, share them with friends, and even suggest your own. Got a twist on our chicken curry? Have a family secret that takes spaghetti to the next level? Let us know! We’re always excited to feature community favorites.</p>
-
-      <p>As we grow, we’ll continue to add seasonal content, themed collections, and even video walkthroughs for some of our most popular recipes. We’re committed to evolving with our readers and making sure this space stays dynamic, useful, and inspiring. Whether you’re cooking for one, feeding a family, or throwing a party, My Recipe Book is here to make your experience smoother and tastier.</p>
-
-      <p>Thank you for visiting, and we hope you come back often. Don’t forget to check out our Terms, Privacy Policy, and Cookie Policy for more information on how we operate. If you have questions, feedback, or want to get in touch, head over to our Contact page. Happy cooking!</p>
+      <h2>Why Vegetarian Recipes?</h2>
+      <p>Vegetarian recipes are not only delicious, but they also promote a healthier lifestyle and are better for the environment. At My Recipe Book, we celebrate the vibrant colors, bold flavors, and diverse textures that vegetarian dishes can bring to your table.</p>
+      <p>From protein-rich legumes to seasonal vegetables and global cuisines, our vegetarian section is designed to inspire everyone — from meat-eaters trying "Meatless Mondays" to lifelong vegetarians looking for new ideas. Discover easy, balanced, and exciting meals that don’t compromise on taste or nutrition.</p>
+      <p>We've included a few of our favorite vegetarian recipes below, complete with beautiful photos and wholesome ingredients. Stay tuned as we continue adding more plant-based goodness every week!</p>
     </section>
   </main>
 
@@ -136,17 +134,38 @@
       {
         title: "Spaghetti Bolognese",
         description: "A classic Italian pasta dish with a rich meat sauce.",
+        image: "https://source.unsplash.com/400x300/?spaghetti",
         ingredients: ["Spaghetti", "Ground beef", "Tomato sauce", "Onion", "Garlic", "Carrot", "Celery"]
       },
       {
         title: "Chicken Curry",
         description: "Spicy and flavorful chicken curry made with Indian spices.",
+        image: "https://source.unsplash.com/400x300/?chicken-curry",
         ingredients: ["Chicken", "Onion", "Garlic", "Ginger", "Tomato", "Yogurt", "Curry powder"]
       },
       {
         title: "Avocado Toast",
         description: "Simple and healthy breakfast option with smashed avocado.",
+        image: "https://source.unsplash.com/400x300/?avocado-toast",
         ingredients: ["Bread", "Avocado", "Salt", "Pepper", "Lemon juice", "Chili flakes"]
+      },
+      {
+        title: "Vegetarian Stir-Fry",
+        description: "A colorful mix of vegetables in a soy-ginger glaze.",
+        image: "https://source.unsplash.com/400x300/?vegetable-stirfry",
+        ingredients: ["Broccoli", "Carrots", "Bell peppers", "Soy sauce", "Garlic", "Ginger", "Tofu"]
+      },
+      {
+        title: "Chickpea Salad",
+        description: "Refreshing and protein-packed chickpea salad.",
+        image: "https://source.unsplash.com/400x300/?chickpea-salad",
+        ingredients: ["Chickpeas", "Tomatoes", "Cucumber", "Olive oil", "Lemon juice", "Parsley"]
+      },
+      {
+        title: "Spinach & Feta Stuffed Peppers",
+        description: "Baked bell peppers filled with a tasty vegetarian mix.",
+        image: "https://source.unsplash.com/400x300/?stuffed-peppers",
+        ingredients: ["Bell peppers", "Spinach", "Feta cheese", "Onion", "Garlic", "Rice", "Herbs"]
       }
     ];
 
@@ -159,7 +178,11 @@
     recipes.forEach((recipe, index) => {
       const card = document.createElement('div');
       card.className = 'recipe-card';
-      card.innerHTML = `<h3>${recipe.title}</h3><p>${recipe.description}</p>`;
+      card.innerHTML = `
+        <img src="${recipe.image}" alt="${recipe.title}" />
+        <h3>${recipe.title}</h3>
+        <p>${recipe.description}</p>
+      `;
       card.addEventListener('click', () => showModal(index));
       container.appendChild(card);
     });
