@@ -19,6 +19,19 @@
       color: white;
     }
 
+    nav {
+      background-color: #ffe0b2;
+      padding: 1em;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
     .recipe-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -65,27 +78,50 @@
       font-size: 1.5em;
       cursor: pointer;
     }
+
+    .intro-text {
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>🍳 My Recipe Book</h1>
   </header>
-  <nav style="background-color: #ffe0b2; padding: 1em; text-align: center;">
-  <a href="index.html" style="margin: 0 1em;">Home</a>
-  <a href="terms.html" style="margin: 0 1em;">Terms</a>
-  <a href="privacy.html" style="margin: 0 1em;">Privacy</a>
-  <a href="cookies.html" style="margin: 0 1em;">Cookies</a>
-  <a href="contact.html" style="margin: 0 1em;">Contact</a>
-</nav>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
   <main>
-    <div class="recipe-container" id="recipeContainer">
-      <!-- Recipe cards inserted by JavaScript -->
-    </div>
+    <div class="recipe-container" id="recipeContainer"></div>
+
+    <section class="intro-text">
+      <h2>Welcome to My Recipe Book</h2>
+      <p>At My Recipe Book, we believe that cooking should be fun, flavorful, and accessible to everyone. Whether you're a seasoned home chef or just starting out in the kitchen, our goal is to provide a collection of delicious and easy-to-follow recipes that inspire your culinary journey. Our recipes span a wide range of cuisines and difficulty levels, so there’s something here for every palate and skill set.</p>
+
+      <p>Cooking isn’t just about feeding ourselves — it’s about creating memories, sharing stories, and bringing people together. That’s why each recipe you’ll find here is more than just a list of ingredients and steps; it’s an invitation to connect with food on a deeper level. We’ve carefully crafted and curated each dish to offer not just great taste, but a little spark of inspiration for your own creativity in the kitchen.</p>
+
+      <p>From quick weeknight dinners to indulgent desserts, we’ve organized our recipes to help you find exactly what you need. Looking for healthy options? Craving something spicy? Need a vegetarian twist on a classic dish? Our growing collection is here to make sure you spend less time wondering what to cook and more time enjoying your meals.</p>
+
+      <p>We also understand that modern cooks have different needs. That's why we include helpful tips like substitution suggestions, storage advice, and even meal prep hacks. Want to save time with a one-pot meal? Curious about how to properly store leftovers? We’ve got you covered. We believe in practical cooking that fits real life — without sacrificing flavor or creativity.</p>
+
+      <p>One of our favorite things about this platform is how interactive it is. You can browse recipes, share them with friends, and even suggest your own. Got a twist on our chicken curry? Have a family secret that takes spaghetti to the next level? Let us know! We’re always excited to feature community favorites.</p>
+
+      <p>As we grow, we’ll continue to add seasonal content, themed collections, and even video walkthroughs for some of our most popular recipes. We’re committed to evolving with our readers and making sure this space stays dynamic, useful, and inspiring. Whether you’re cooking for one, feeding a family, or throwing a party, My Recipe Book is here to make your experience smoother and tastier.</p>
+
+      <p>Thank you for visiting, and we hope you come back often. Don’t forget to check out our Terms, Privacy Policy, and Cookie Policy for more information on how we operate. If you have questions, feedback, or want to get in touch, head over to our Contact page. Happy cooking!</p>
+    </section>
   </main>
 
-  <!-- Modal for Recipe Details -->
   <div id="recipeModal" class="modal">
     <div class="modal-content">
       <span class="close" id="closeModal">&times;</span>
