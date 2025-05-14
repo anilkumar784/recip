@@ -87,5 +87,61 @@
   <p>If you have any questions or concerns about our use of cookies, please feel free to reach out through our <a href="contact.html">Contact Page</a>.</p>
 
   <p><em>Last updated: May 14, 2025</em></p>
+  
+  <!-- Cookie Consent Dialog -->
+<div id="cookie-consent" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff0e0;
+  padding: 1em;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  z-index: 1000;
+  display: none;
+">
+  <p style="margin-bottom: 0.5em;">
+    We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies. You can choose to accept or decline.
+  </p>
+  <button onclick="acceptCookies()" style="
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em 1em;
+    margin-right: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  ">Accept</button>
+  <button onclick="declineCookies()" style="
+    background-color: #ccc;
+    color: #333;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  ">Decline</button>
+</div>
+
+<script>
+  // Check consent on page load
+  window.onload = function() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent) {
+      document.getElementById('cookie-consent').style.display = 'block';
+    }
+  };
+
+  function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookie-consent').style.display = 'none';
+  }
+
+  function declineCookies() {
+    localStorage.setItem('cookieConsent', 'declined');
+    document.getElementById('cookie-consent').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
