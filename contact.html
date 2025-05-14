@@ -1,31 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact Us</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - My Recipe Book</title>
   <style>
-    body { font-family: Arial; padding: 2em; line-height: 1.6; }
-    h1 { color: #ff7f50; }
-    form { max-width: 400px; margin-top: 1em; }
-    input, textarea {
-      width: 100%; padding: 10px; margin: 10px 0;
-      border: 1px solid #ccc; border-radius: 5px;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2em;
+      background-color: #fdfcfb;
+      color: #333;
     }
-    button {
-      background-color: #ff7f50; color: white;
-      padding: 10px 20px; border: none;
-      border-radius: 5px; cursor: pointer;
+
+    h1 {
+      text-align: center;
+      color: #ff7f50;
     }
-    button:hover { background-color: #e67348; }
+
+    h2 {
+      color: #ff7f50;
+      margin-top: 1.5em;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 1em;
+    }
+
+    nav {
+      background-color: #ffe5d0;
+      padding: 1em;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 2em auto;
+      padding: 2em;
+      background-color: #fff7f0;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.75em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #ff7f50;
+      color: white;
+      border: none;
+      padding: 0.75em 1.5em;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #e06645;
+    }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <h1>Contact Us</h1>
-  <form action="mailto:your@email.com" method="post">
-    <input type="text" name="name" placeholder="Your Name" required/>
-    <input type="email" name="email" placeholder="Your Email" required/>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
+
+  <p>We love hearing from our visitors, fellow foodies, and anyone with a passion for vegetarian cooking! Whether you have a question about a recipe, a suggestion for our site, or you just want to say hello, don’t hesitate to reach out.</p>
+
+  <h2>How to Get in Touch</h2>
+
+  <p>The best way to contact us is by using the form below. Please include as much detail as possible so we can respond effectively. We aim to reply to all messages within 48 hours, though response times may vary during weekends or holidays.</p>
+
+  <p>Alternatively, if you prefer, you can also email us directly at: <strong>hello@myrecipebook.com</strong></p>
+
+  <p>If you’re reaching out to contribute a recipe, please include a short description, a list of ingredients, and step-by-step instructions. We’re always excited to feature new ideas and flavors!</p>
+
+  <h2>General Inquiries</h2>
+  <p>For questions related to website functionality, broken links, or feedback about user experience, we’re especially grateful. We’re always working to make this site better, and your input helps us improve.</p>
+
+  <h2>Collaborations and Partnerships</h2>
+  <p>If you’re a food blogger, health coach, or brand representative interested in working together, please use the form below and include a brief proposal. We’re open to guest content, product features, and joint campaigns—as long as they align with our values and vegetarian philosophy.</p>
+
+  <form action="#" method="post">
+    <label for="name">Your Name *</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Email *</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Your Message *</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+
+    <input type="submit" value="Send Message">
   </form>
+
+  <p style="text-align:center;"><em>We respect your privacy. Any personal information shared through this form will be handled in accordance with our <a href="privacy.html">Privacy Policy</a>.</em></p>
 </body>
 </html>
