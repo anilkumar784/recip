@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Recipe Book</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fefefe;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffb347;
+      padding: 1em;
+      text-align: center;
+      color: white;
+    }
+
+    .recipe-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1em;
+      padding: 1em;
+    }
+
+    .recipe-card {
+      background-color: #fff5e6;
+      border: 1px solid #ffa07a;
+      border-radius: 10px;
+      padding: 1em;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+    }
+
+    .recipe-card:hover {
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: auto;
+      padding: 2em;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+    }
+
+    .close {
+      float: right;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍳 My Recipe Book</h1>
+  </header>
+
+  <main>
+    <div class="recipe-container" id="recipeContainer">
+      <!-- Recipe cards inserted by JavaScript -->
+    </div>
+  </main>
+
+  <!-- Modal for Recipe Details -->
+  <div id="recipeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <ul id="modalIngredients"></ul>
+    </div>
+  </div>
+
+  <script>
+    const recipes = [
+      {
+        title: "Spaghetti Bolognese",
+        description: "A classic Italian pasta dish with a rich meat sauce.",
+        ingredients: ["Spaghetti", "Ground beef", "Tomato sauce", "Onion", "Garlic", "Carrot", "Celery"]
+      },
+      {
+        title: "Chicken Curry",
+        description: "Spicy and flavorful chicken curry made with Indian spices.",
+        ingredients: ["Chicken", "Onion", "Garlic", "Ginger", "Tomato", "Yogurt", "Curry powder"]
+      },
+      {
+        title: "Avocado Toast",
+        description: "Simple and healthy breakfast option with smashed avocado.",
+        ingredients: ["Bread", "Avocado", "Salt", "Pepper", "Lemon juice", "Chili flakes"]
+      }
+    ];
+
+    const container = document.getElementById('recipeContainer');
+    const modal = document.getElementById('recipeModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalIngredients = document.getElementById('modalIngredients');
+
+    recipes.forEach((recipe, index) => {
+      const card = document.createElement('div');
+      card.className = 'recipe-card';
+      card.innerHTML = `<h3>${recipe.title}</h3><p>${recipe.description}</p>`;
+      card.addEventListener('click', () => showModal(index));
+      container.appendChild(card);
+    });
+
+    function showModal(index) {
+      const recipe = recipes[index];
+      modalTitle.textContent = recipe.title;
+      modalDescription.textContent = recipe.description;
+      modalIngredients.innerHTML = recipe.ingredients.map(i => `<li>${i}</li>`).join('');
+      modal.style.display = 'block';
+    }
+
+    document.getElementById('closeModal').onclick = () => {
+      modal.style.display = 'none';
+    };
+
+    window.onclick = (event) => {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>
